@@ -1,0 +1,4 @@
+/home/cindyli/clion-2020.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/cindyli/Programming/3DSurfacePlotter
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug
