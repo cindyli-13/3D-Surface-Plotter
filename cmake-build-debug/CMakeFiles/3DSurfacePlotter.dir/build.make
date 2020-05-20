@@ -57,94 +57,109 @@ include CMakeFiles/3DSurfacePlotter.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/3DSurfacePlotter.dir/flags.make
 
-CMakeFiles/3DSurfacePlotter.dir/main.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
-CMakeFiles/3DSurfacePlotter.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/main.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/main.cpp
+CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/src/main.cpp
 
-CMakeFiles/3DSurfacePlotter.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/main.cpp > CMakeFiles/3DSurfacePlotter.dir/main.cpp.i
+CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/main.cpp > CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.i
 
-CMakeFiles/3DSurfacePlotter.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/main.cpp -o CMakeFiles/3DSurfacePlotter.dir/main.cpp.s
+CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/main.cpp -o CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.s
 
-CMakeFiles/3DSurfacePlotter.dir/glad.c.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
-CMakeFiles/3DSurfacePlotter.dir/glad.c.o: ../glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/3DSurfacePlotter.dir/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/glad.c.o   -c /home/cindyli/Programming/3DSurfacePlotter/glad.c
+CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o: ../src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o   -c /home/cindyli/Programming/3DSurfacePlotter/src/glad.c
 
-CMakeFiles/3DSurfacePlotter.dir/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/3DSurfacePlotter.dir/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/glad.c > CMakeFiles/3DSurfacePlotter.dir/glad.c.i
+CMakeFiles/3DSurfacePlotter.dir/src/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/3DSurfacePlotter.dir/src/glad.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/glad.c > CMakeFiles/3DSurfacePlotter.dir/src/glad.c.i
 
-CMakeFiles/3DSurfacePlotter.dir/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/3DSurfacePlotter.dir/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/glad.c -o CMakeFiles/3DSurfacePlotter.dir/glad.c.s
+CMakeFiles/3DSurfacePlotter.dir/src/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/3DSurfacePlotter.dir/src/glad.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/glad.c -o CMakeFiles/3DSurfacePlotter.dir/src/glad.c.s
 
-CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
-CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o: ../Shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/Shader.cpp
+CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o: ../src/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/src/Shader.cpp
 
-CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/Shader.cpp > CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.i
+CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/Shader.cpp > CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.i
 
-CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/Shader.cpp -o CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.s
+CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/Shader.cpp -o CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.s
 
-CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
-CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o: ../SurfacePlotter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/SurfacePlotter.cpp
+CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o: ../src/SurfacePlotter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/src/SurfacePlotter.cpp
 
-CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/SurfacePlotter.cpp > CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.i
+CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/SurfacePlotter.cpp > CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.i
 
-CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/SurfacePlotter.cpp -o CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.s
+CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/SurfacePlotter.cpp -o CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.s
 
-CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
-CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o: ../GLProgram.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/GLProgram.cpp
+CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o: ../src/GLProgram.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/src/GLProgram.cpp
 
-CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/GLProgram.cpp > CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.i
+CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/GLProgram.cpp > CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.i
 
-CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/GLProgram.cpp -o CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.s
+CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/GLProgram.cpp -o CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.s
+
+CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o: CMakeFiles/3DSurfacePlotter.dir/flags.make
+CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o: ../src/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o -c /home/cindyli/Programming/3DSurfacePlotter/src/Camera.cpp
+
+CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cindyli/Programming/3DSurfacePlotter/src/Camera.cpp > CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.i
+
+CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cindyli/Programming/3DSurfacePlotter/src/Camera.cpp -o CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.s
 
 # Object files for target 3DSurfacePlotter
 3DSurfacePlotter_OBJECTS = \
-"CMakeFiles/3DSurfacePlotter.dir/main.cpp.o" \
-"CMakeFiles/3DSurfacePlotter.dir/glad.c.o" \
-"CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o" \
-"CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o" \
-"CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o"
+"CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o" \
+"CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o" \
+"CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o" \
+"CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o" \
+"CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o" \
+"CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o"
 
 # External object files for target 3DSurfacePlotter
 3DSurfacePlotter_EXTERNAL_OBJECTS =
 
-3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/main.cpp.o
-3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/glad.c.o
-3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o
-3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o
-3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o
+3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o
 3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/build.make
 3DSurfacePlotter: /usr/local/lib/libglfw3.a
 3DSurfacePlotter: /usr/lib/x86_64-linux-gnu/librt.so
 3DSurfacePlotter: /usr/lib/x86_64-linux-gnu/libm.so
 3DSurfacePlotter: /usr/lib/x86_64-linux-gnu/libX11.so
 3DSurfacePlotter: CMakeFiles/3DSurfacePlotter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable 3DSurfacePlotter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cindyli/Programming/3DSurfacePlotter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable 3DSurfacePlotter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/3DSurfacePlotter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

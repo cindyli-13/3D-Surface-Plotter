@@ -1,11 +1,12 @@
 file(REMOVE_RECURSE
   "3DSurfacePlotter"
   "3DSurfacePlotter.pdb"
-  "CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o"
-  "CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o"
-  "CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o"
-  "CMakeFiles/3DSurfacePlotter.dir/glad.c.o"
-  "CMakeFiles/3DSurfacePlotter.dir/main.cpp.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o"
+  "CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

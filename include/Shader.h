@@ -1,5 +1,5 @@
-#ifndef INC_3DSURFACEPLOTTER_SHADER_H
-#define INC_3DSURFACEPLOTTER_SHADER_H
+#ifndef SHADER_H
+#define SHADER_H
 
 #include <glad/glad.h>
 #include <string>
@@ -16,6 +16,7 @@ class Shader {
         Shader();
         Shader(const char* vertexPath, const char* fragmentPath);
         void use(void);
+        void setFloatUniform(const std::string &name, float value) const;
         void setVec3Uniform(const std::string &name, glm::vec3 value) const;
         void setMat4Uniform(const std::string &name, glm::mat4 value) const;
 
@@ -23,4 +24,4 @@ class Shader {
         void checkCompileErrors(uint shader, std::string type);
 };
 
-#endif //INC_3DSURFACEPLOTTER_SHADER_H
+#endif //SHADER_H

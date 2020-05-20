@@ -1,4 +1,4 @@
-#include "Shader.h"
+#include "../include/Shader.h"
 
 Shader::Shader() {}
 
@@ -46,7 +46,6 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     // vertex shader
     vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex, 1, &vertexCode, NULL);
-    std::cout << "hi";
     glCompileShader(vertex);
     checkCompileErrors(vertex, "VERTEX");
 
@@ -76,6 +75,10 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
 
 void Shader::use(void) {
     glUseProgram(ID);
+}
+
+void Shader::setFloatUniform(const std::string &name, float value) const {
+    glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }
 
 void Shader::setVec3Uniform(const std::string &name, glm::vec3 value) const {

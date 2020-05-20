@@ -123,140 +123,167 @@ depend:
 	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/build
 .PHONY : 3DSurfacePlotter/fast
 
-GLProgram.o: GLProgram.cpp.o
+src/Camera.o: src/Camera.cpp.o
 
-.PHONY : GLProgram.o
-
-# target to build an object file
-GLProgram.cpp.o:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.o
-.PHONY : GLProgram.cpp.o
-
-GLProgram.i: GLProgram.cpp.i
-
-.PHONY : GLProgram.i
-
-# target to preprocess a source file
-GLProgram.cpp.i:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.i
-.PHONY : GLProgram.cpp.i
-
-GLProgram.s: GLProgram.cpp.s
-
-.PHONY : GLProgram.s
-
-# target to generate assembly for a file
-GLProgram.cpp.s:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/GLProgram.cpp.s
-.PHONY : GLProgram.cpp.s
-
-Shader.o: Shader.cpp.o
-
-.PHONY : Shader.o
+.PHONY : src/Camera.o
 
 # target to build an object file
-Shader.cpp.o:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.o
-.PHONY : Shader.cpp.o
+src/Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.o
+.PHONY : src/Camera.cpp.o
 
-Shader.i: Shader.cpp.i
+src/Camera.i: src/Camera.cpp.i
 
-.PHONY : Shader.i
+.PHONY : src/Camera.i
 
 # target to preprocess a source file
-Shader.cpp.i:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.i
-.PHONY : Shader.cpp.i
+src/Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.i
+.PHONY : src/Camera.cpp.i
 
-Shader.s: Shader.cpp.s
+src/Camera.s: src/Camera.cpp.s
 
-.PHONY : Shader.s
+.PHONY : src/Camera.s
 
 # target to generate assembly for a file
-Shader.cpp.s:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/Shader.cpp.s
-.PHONY : Shader.cpp.s
+src/Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Camera.cpp.s
+.PHONY : src/Camera.cpp.s
 
-SurfacePlotter.o: SurfacePlotter.cpp.o
+src/GLProgram.o: src/GLProgram.cpp.o
 
-.PHONY : SurfacePlotter.o
+.PHONY : src/GLProgram.o
 
 # target to build an object file
-SurfacePlotter.cpp.o:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.o
-.PHONY : SurfacePlotter.cpp.o
+src/GLProgram.cpp.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.o
+.PHONY : src/GLProgram.cpp.o
 
-SurfacePlotter.i: SurfacePlotter.cpp.i
+src/GLProgram.i: src/GLProgram.cpp.i
 
-.PHONY : SurfacePlotter.i
+.PHONY : src/GLProgram.i
 
 # target to preprocess a source file
-SurfacePlotter.cpp.i:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.i
-.PHONY : SurfacePlotter.cpp.i
+src/GLProgram.cpp.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.i
+.PHONY : src/GLProgram.cpp.i
 
-SurfacePlotter.s: SurfacePlotter.cpp.s
+src/GLProgram.s: src/GLProgram.cpp.s
 
-.PHONY : SurfacePlotter.s
+.PHONY : src/GLProgram.s
 
 # target to generate assembly for a file
-SurfacePlotter.cpp.s:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/SurfacePlotter.cpp.s
-.PHONY : SurfacePlotter.cpp.s
+src/GLProgram.cpp.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/GLProgram.cpp.s
+.PHONY : src/GLProgram.cpp.s
 
-glad.o: glad.c.o
+src/Shader.o: src/Shader.cpp.o
 
-.PHONY : glad.o
+.PHONY : src/Shader.o
 
 # target to build an object file
-glad.c.o:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/glad.c.o
-.PHONY : glad.c.o
+src/Shader.cpp.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.o
+.PHONY : src/Shader.cpp.o
 
-glad.i: glad.c.i
+src/Shader.i: src/Shader.cpp.i
 
-.PHONY : glad.i
+.PHONY : src/Shader.i
 
 # target to preprocess a source file
-glad.c.i:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/glad.c.i
-.PHONY : glad.c.i
+src/Shader.cpp.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
 
-glad.s: glad.c.s
+src/Shader.s: src/Shader.cpp.s
 
-.PHONY : glad.s
+.PHONY : src/Shader.s
 
 # target to generate assembly for a file
-glad.c.s:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/glad.c.s
-.PHONY : glad.c.s
+src/Shader.cpp.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
 
-main.o: main.cpp.o
+src/SurfacePlotter.o: src/SurfacePlotter.cpp.o
 
-.PHONY : main.o
+.PHONY : src/SurfacePlotter.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/SurfacePlotter.cpp.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.o
+.PHONY : src/SurfacePlotter.cpp.o
 
-main.i: main.cpp.i
+src/SurfacePlotter.i: src/SurfacePlotter.cpp.i
 
-.PHONY : main.i
+.PHONY : src/SurfacePlotter.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/SurfacePlotter.cpp.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.i
+.PHONY : src/SurfacePlotter.cpp.i
 
-main.s: main.cpp.s
+src/SurfacePlotter.s: src/SurfacePlotter.cpp.s
 
-.PHONY : main.s
+.PHONY : src/SurfacePlotter.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/SurfacePlotter.cpp.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/SurfacePlotter.cpp.s
+.PHONY : src/SurfacePlotter.cpp.s
+
+src/glad.o: src/glad.c.o
+
+.PHONY : src/glad.o
+
+# target to build an object file
+src/glad.c.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/glad.c.o
+.PHONY : src/glad.c.o
+
+src/glad.i: src/glad.c.i
+
+.PHONY : src/glad.i
+
+# target to preprocess a source file
+src/glad.c.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/glad.c.i
+.PHONY : src/glad.c.i
+
+src/glad.s: src/glad.c.s
+
+.PHONY : src/glad.s
+
+# target to generate assembly for a file
+src/glad.c.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/glad.c.s
+.PHONY : src/glad.c.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/3DSurfacePlotter.dir/build.make CMakeFiles/3DSurfacePlotter.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -267,21 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... 3DSurfacePlotter"
-	@echo "... GLProgram.o"
-	@echo "... GLProgram.i"
-	@echo "... GLProgram.s"
-	@echo "... Shader.o"
-	@echo "... Shader.i"
-	@echo "... Shader.s"
-	@echo "... SurfacePlotter.o"
-	@echo "... SurfacePlotter.i"
-	@echo "... SurfacePlotter.s"
-	@echo "... glad.o"
-	@echo "... glad.i"
-	@echo "... glad.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/Camera.o"
+	@echo "... src/Camera.i"
+	@echo "... src/Camera.s"
+	@echo "... src/GLProgram.o"
+	@echo "... src/GLProgram.i"
+	@echo "... src/GLProgram.s"
+	@echo "... src/Shader.o"
+	@echo "... src/Shader.i"
+	@echo "... src/Shader.s"
+	@echo "... src/SurfacePlotter.o"
+	@echo "... src/SurfacePlotter.i"
+	@echo "... src/SurfacePlotter.s"
+	@echo "... src/glad.o"
+	@echo "... src/glad.i"
+	@echo "... src/glad.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

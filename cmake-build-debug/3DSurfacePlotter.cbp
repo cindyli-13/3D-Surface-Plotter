@@ -84,28 +84,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/GLProgram.cpp">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/Camera.cpp">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/GLProgram.h">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/GLProgram.cpp">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/Shader.cpp">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/Shader.cpp">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/Shader.h">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/SurfacePlotter.cpp">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/SurfacePlotter.cpp">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/glad.c">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/SurfacePlotter.h">
-			<Option target="3DSurfacePlotter"/>
-		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/glad.c">
-			<Option target="3DSurfacePlotter"/>
-		</Unit>
-		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/main.cpp">
+		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/src/main.cpp">
 			<Option target="3DSurfacePlotter"/>
 		</Unit>
 		<Unit filename="/home/cindyli/Programming/3DSurfacePlotter/CMakeLists.txt">
