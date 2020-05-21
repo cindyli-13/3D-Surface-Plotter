@@ -10,7 +10,7 @@ Camera GLProgram::camera;
 int main() {
     GLProgram program(WINDOW_WIDTH, WINDOW_HEIGHT);
     program.init(vertexShaderPath, fragmentShaderPath);
-    program.setClearColor(0.1f, 0.2f, 0.3f, 1.0f);
+    program.setClearColor(0.05f, 0.18f, 0.25f, 1.0f);
     program.run();
     program.cleanup();
     return 0;

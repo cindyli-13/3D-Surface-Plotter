@@ -1,7 +1,7 @@
 #include "../include/SurfacePlotter.h"
 
 // default constructor
-SurfacePlotter::SurfacePlotter() : xMin(-10.0f), xMax(10.0f), yMin(-10.0f), yMax(10.0f), gridInterval(0.3f), vertices(NULL), numElements(0), indices(NULL), numIndices(0), zMin(FLOAT_MAX), zMax(FLOAT_MIN) {
+SurfacePlotter::SurfacePlotter() : xMin(-3.0f), xMax(3.0f), yMin(-3.0f), yMax(3.0f), gridInterval(0.1f), vertices(NULL), numElements(0), indices(NULL), numIndices(0), zMin(FLOAT_MAX), zMax(FLOAT_MIN) {
     setGrid(this->xMin, this->xMax, this->yMin, this->yMax, this->gridInterval);
 }
 
@@ -56,7 +56,8 @@ void SurfacePlotter::generateSurfacePlot(float time) {
             // add vertex
             this->vertices[(x*numY + y) * 3 + 0] = this->gridPoints[x][y].x; // x
             this->vertices[(x*numY + y) * 3 + 1] = this->gridPoints[x][y].y; // y
-            this->vertices[(x*numY + y) * 3 + 2] = sin(2*time) * f(this->gridPoints[x][y].x, this->gridPoints[x][y].y); // z
+            // this->vertices[(x*numY + y) * 3 + 2] = sin(2*time) * f(this->gridPoints[x][y].x, this->gridPoints[x][y].y); // z time-dependent
+            this->vertices[(x*numY + y) * 3 + 2] = f(this->gridPoints[x][y].x, this->gridPoints[x][y].y); // z static
         }
     }
 
@@ -90,7 +91,9 @@ void SurfacePlotter::generateSurfacePlot(float time) {
 float SurfacePlotter::f(float x, float y) {
 
     // EQUATION
-    float z = 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
+    //float z = 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
+    //float z = sin(pow(x/2.5, 2) + pow(y/2.5, 2));
+    float z = pow(x/1.5,2) + pow(y/1.5,2); // parabaloid
 
     // update z ranges
     if (z < zMin)
