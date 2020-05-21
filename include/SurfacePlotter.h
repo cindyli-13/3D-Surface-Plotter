@@ -34,7 +34,7 @@ class SurfacePlotter {
         SurfacePlotter();
 
         void setGrid(float xMin, float xMax, float yMin, float yMax, float interval);
-        void generateSurfacePlot(void);
+        void generateSurfacePlot(float time);
         float f(float x, float y); // mathematical multi-variable function, returns z value
 
         float getZMin(void);

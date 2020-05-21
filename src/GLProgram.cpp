@@ -39,7 +39,7 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
     this->shader = Shader(vertexPath, fragmentPath);
 
     // generate default surface plot
-    this->surfacePlotter.generateSurfacePlot();
+    this->surfacePlotter.generateSurfacePlot(1.0f);
 
     // set up VAOs and VBOs and EBOs
     initDrawingData();
@@ -63,7 +63,7 @@ void GLProgram::run(void) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // computation
-        surfacePlotter.generateSurfacePlot();
+        surfacePlotter.generateSurfacePlot(1.0f);
 
         // set up shader and transformation matrices
         this->shader.use();
@@ -78,6 +78,7 @@ void GLProgram::run(void) {
         this->shader.setMat4Uniform("model", modelMatrix);
 
         // render
+        this->surfacePlotter.generateSurfacePlot((float)glfwGetTime());
         drawSurfacePlot();
 
         // check and call events and swap buffers
@@ -112,6 +113,8 @@ void GLProgram::initDrawingData(void) {
 
 void GLProgram::drawSurfacePlot(void) {
     glBindVertexArray(this->surfacePlotVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, this->surfacePlotVBO);
+    glBufferData(GL_ARRAY_BUFFER, this->surfacePlotter.getNumElements()*sizeof(float), this->surfacePlotter.getVertices(), GL_DYNAMIC_DRAW);
     glDrawElements(GL_TRIANGLES, this->surfacePlotter.getNumIndices(),GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
