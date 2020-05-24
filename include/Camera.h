@@ -9,8 +9,8 @@
 #define MIN_ZOOM 1.0f
 
 enum CameraMovement {
-    FORWARD,
-    BACKWARD,
+    UP,
+    DOWN,
     LEFT,
     RIGHT
 };
@@ -31,7 +31,6 @@ class Camera {
         Camera();
 
         glm::mat4 getViewMatrix(void);
-        glm::mat4 getProjectionMatrix(float screenWidth, float screenHeight);
         void processKeyboard(CameraMovement direction, float deltaTime);
         void processMouseScroll(float yOffset);
 };

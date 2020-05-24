@@ -12,10 +12,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#define MIN(a, b) ((a) < (b)) ? (a) : (b)
+
 class GLProgram {
     private:
         GLFWwindow* window;
-        int windowWidth, windowHeight;
 
         float deltaTime, prevTime;
 
@@ -31,11 +32,16 @@ class GLProgram {
         uint surfacePlotVAO, surfacePlotVBO, surfacePlotEBO;
 
         void initDrawingData(void);
+        static glm::vec3 getArcballVector(float x, float y); // helper to cursor callback, (x,y) are raw mouse coordinates
 
     public:
+        static int windowWidth, windowHeight;
         static Camera camera;
+        static bool mousePressed;
+        static double prevMouseX, prevMouseY;
+        static glm::mat4 modelMatrix;
 
-        GLProgram(int windowWidth, int windowHeight);
+        GLProgram();
 
         void init(const char* vertexPath, const char* fragmentPath);
         void run(void);
@@ -51,11 +57,13 @@ class GLProgram {
         // transformation matrices
         glm::mat4 getViewMatrix(void);
         glm::mat4 getProjectionMatrix(void);
-        glm::mat4 getModelMatrix(void);
+        glm::mat4 getDefaultModelMatrix(void);
 
-        // call back for when the viewport is resized
+        // event callback functions
         static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
         static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+        static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+        static void cursorPosCallback(GLFWwindow* window, double xpos, double ypos);
 
         // input
         void processInput(void);

@@ -1,7 +1,8 @@
 #include "../include/GLProgram.h"
+#include "glm/ext.hpp"
 
-GLProgram::GLProgram(int windowWidth, int windowHeight) :
-    windowWidth(windowWidth), windowHeight(windowHeight), deltaTime(0.0f), prevTime(0.0f) {}
+GLProgram::GLProgram() :
+    deltaTime(0.0f), prevTime(0.0f) {}
 
 void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
 
@@ -23,6 +24,8 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
     glfwSetFramebufferSizeCallback(this->window, framebufferSizeCallback);
     glfwSetScrollCallback(window, scrollCallback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR);
+    glfwSetMouseButtonCallback(window, mouseButtonCallback);
+    glfwSetCursorPosCallback(window, cursorPosCallback);
 
     // initialize GLAD before making OpenGL calls
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -33,7 +36,7 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
     // GL calls
     glViewport(0, 0, this->windowWidth, this->windowHeight);
     glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // wireframe
 
     // init shader
     this->shader = Shader(vertexPath, fragmentPath);
@@ -69,13 +72,12 @@ void GLProgram::run(void) {
         this->shader.use();
         glm::mat4 viewMatrix = getViewMatrix();
         glm::mat4 projectionMatrix = getProjectionMatrix();
-        glm::mat4 modelMatrix = getModelMatrix();
         int zRange = this->surfacePlotter.getZRange();
         this->shader.setFloatUniform("zRange", (zRange == 0) ? 1.0f : zRange);
         this->shader.setFloatUniform("zMin", this->surfacePlotter.getZMin());
         this->shader.setMat4Uniform("view", viewMatrix);
         this->shader.setMat4Uniform("projection", projectionMatrix);
-        this->shader.setMat4Uniform("model", modelMatrix);
+        this->shader.setMat4Uniform("model", getDefaultModelMatrix() * modelMatrix);
 
         // render
         this->surfacePlotter.generateSurfacePlot((float)glfwGetTime());
@@ -154,17 +156,81 @@ glm::mat4 GLProgram::getProjectionMatrix(void) {
     return glm::perspective(glm::radians(camera.zoom), (float) this->windowWidth / (float) this->windowHeight, 0.1f, 100.0f);
 }
 
-glm::mat4 GLProgram::getModelMatrix(void) {
+glm::mat4 GLProgram::getDefaultModelMatrix(void) {
     //return glm::mat4(1.0f); // identity
     return glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
 void GLProgram::framebufferSizeCallback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
+    windowWidth = width;
+    windowHeight = height;
+}
+
+void GLProgram::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
+
+    if (button == GLFW_MOUSE_BUTTON_LEFT) {
+        if (action == GLFW_PRESS) {
+            glfwGetCursorPos(window, &prevMouseX, &prevMouseY);
+            mousePressed = true;
+        }
+        else if (action == GLFW_RELEASE) {
+            mousePressed = false;
+        }
+    }
 }
 
 void GLProgram::scrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
     camera.processMouseScroll(yoffset);
+}
+
+void GLProgram::cursorPosCallback(GLFWwindow* window, double xpos, double ypos) {
+
+    if (mousePressed) {
+
+        // get current cursor coordinates
+        double currMouseX, currMouseY;
+        glfwGetCursorPos(window, &currMouseX, &currMouseY);
+
+        // get points on arcball
+        glm::vec3 va = getArcballVector(prevMouseX, prevMouseY);
+        glm::vec3 vb = getArcballVector(currMouseX, currMouseY);
+
+        float speedFactor = 0.1f;
+        float angleOfRotation = speedFactor * acos(MIN(1.0f, glm::dot(va, vb)));
+
+        // to get the axis of rotation, need to convert from camera coordinates to world coordinates
+        glm::vec3 axisCamera = glm::cross(va, vb);
+        glm::mat3 cameraToModel = glm::inverse(glm::mat3(camera.getViewMatrix() * modelMatrix));
+        glm::vec3 axisModel = cameraToModel * axisCamera;
+
+        // update model rotation matrix
+        float tolerance = 1e-4;
+        if (angleOfRotation > tolerance)
+            modelMatrix = glm::rotate(modelMatrix, glm::degrees(angleOfRotation), axisModel);
+
+        // update cursor position
+        prevMouseX = currMouseX;
+        prevMouseY = currMouseY;
+    }
+}
+
+glm::vec3 GLProgram::getArcballVector(float x, float y) {
+
+    // get normalized vector from center of the virtual arcball to a point P on the arcball's surface
+    // if (x,y) is too far away from the arcball, return the nearest point on the arcball's surface
+    glm::vec3 P(x/windowWidth * 2 - 1.0, y/windowHeight * 2 - 1.0, 0.0f);
+    P.y = -P.y;
+
+    float radius = 1.0f;
+    float OP_squared = P.x * P.x + P.y * P.y;
+
+    if (OP_squared <= radius)
+        P.z = sqrt(radius - OP_squared); // apply pythagorean theorem to find z
+    else
+        P = glm::normalize(P); // nearest point
+
+    return P;
 }
 
 void GLProgram::processInput(void) {
@@ -175,9 +241,9 @@ void GLProgram::processInput(void) {
 
     // camera movement
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.processKeyboard(FORWARD, deltaTime);
+        camera.processKeyboard(UP, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.processKeyboard(BACKWARD, deltaTime);
+        camera.processKeyboard(DOWN, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
         camera.processKeyboard(LEFT, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)

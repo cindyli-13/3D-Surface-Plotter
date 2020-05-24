@@ -8,6 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#define PI 3.14159265
 #define e 2.71828
 #define FLOAT_MIN -2147483648
 #define FLOAT_MAX 2147483648

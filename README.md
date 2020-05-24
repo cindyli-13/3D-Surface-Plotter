@@ -13,5 +13,5 @@ f(x, y) = sin(x^2 + y^2)
 
 ![sin(x^2 + y^2)](https://github.com/cindyli-13/3D-Surface-Plotter/blob/master/images/sin(x^2+y^2).png)
 
-f(x, y) = x^2 + y^2
+f(x, y) = x^2 + y^2 (parabloid)
 ![x^2 + y^2](https://github.com/cindyli-13/3D-Surface-Plotter/blob/master/images/parabloid.png)
