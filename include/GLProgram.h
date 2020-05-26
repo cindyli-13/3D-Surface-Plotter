@@ -54,6 +54,7 @@ class GLProgram {
         uint generateVAO(void);
 
         void drawSurfacePlot(void);
+        void drawCube(void);
 
         // transformation matrices
         glm::mat4 getViewMatrix(void);
@@ -68,8 +69,6 @@ class GLProgram {
 
         // input
         void processInput(void);
-        void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-        void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 };
 
 #endif //GLPROGRAM_H
