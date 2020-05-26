@@ -1,8 +1,16 @@
 #include "../include/SurfacePlotter.h"
 
 // default constructor
-SurfacePlotter::SurfacePlotter() : xMin(-10.0f), xMax(10.0f), yMin(-10.0f), yMax(10.0f), gridInterval(0.2f), vertices(NULL), numElements(0), indices(NULL), numIndices(0), zMin(FLOAT_MAX), zMax(FLOAT_MIN) {
+SurfacePlotter::SurfacePlotter() :
+    xMin(-10.0f), xMax(10.0f), yMin(-10.0f), yMax(10.0f), gridInterval(0.2f), zMin(FLOAT_MAX), zMax(FLOAT_MIN),
+    vertices(NULL), numElements(0), indices(NULL), numIndices(0), cubeVertices(NULL), cubeIndices(NULL) {
+
     setGrid(this->xMin, this->xMax, this->yMin, this->yMax, this->gridInterval);
+    this->cubeIndices = new uint[24] {
+        0,1, 1,2, 2,3, 3,0,
+        4,5, 5,6, 6,7, 7,4,
+        0,4, 1,5, 2,6, 3,7
+    };
 }
 
 void SurfacePlotter::setGrid(float xMin, float xMax, float yMin, float yMax, float interval) {
@@ -28,18 +36,18 @@ void SurfacePlotter::setGrid(float xMin, float xMax, float yMin, float yMax, flo
 void SurfacePlotter::generateSurfacePlot(float time) {
 
     // reset ranges
-    zMin = FLOAT_MAX;
-    zMax = FLOAT_MIN;
+    this->zMin = FLOAT_MAX;
+    this->zMax = FLOAT_MIN;
 
     // empty grid
-    if (gridPoints.empty())
+    if (this->gridPoints.empty())
         return;
 
     // vertices:
 
     // deallocate old data
     if (this->vertices)
-        delete[] vertices;
+        delete[] this->vertices;
 
     // determine number of rows in x and y axes
     int numX = this->gridPoints.size();
@@ -54,10 +62,9 @@ void SurfacePlotter::generateSurfacePlot(float time) {
         for (int y = 0; y < numY; ++y) {
 
             // add vertex
-            this->vertices[(x*numY + y) * 3 + 0] = this->gridPoints[x][y].x; // x
-            this->vertices[(x*numY + y) * 3 + 1] = this->gridPoints[x][y].y; // y
-            this->vertices[(x*numY + y) * 3 + 2] = sin(2*time) * f(this->gridPoints[x][y].x, this->gridPoints[x][y].y); // z time-dependent
-            //this->vertices[(x*numY + y) * 3 + 2] = f(this->gridPoints[x][y].x, this->gridPoints[x][y].y); // z static
+            this->vertices[(x * numY + y) * 3 + 0] = this->gridPoints[x][y].x; // x
+            this->vertices[(x * numY + y) * 3 + 1] = this->gridPoints[x][y].y; // y
+            this->vertices[(x * numY + y) * 3 + 2] = f(this->gridPoints[x][y].x, this->gridPoints[x][y].y, time); // z time-dependent
         }
     }
 
@@ -65,43 +72,71 @@ void SurfacePlotter::generateSurfacePlot(float time) {
 
     // deallocte old data
     if (this->indices)
-        delete[] indices;
+        delete[] this->indices;
 
     // determine number of indices
-    this->numIndices = (numX-1) * (numY-1) * 6; // num quads * 6
+    this->numIndices = (numX * (numY-1) + numY * (numX - 1)) * 2;
 
     // allocate memory for new data
     this->indices = new uint[this->numIndices];
 
-    // generate indices
-    for (int x = 0; x < numX-1; ++x) {
+    int i = 0;
+
+    for (int x = 0; x < numX; ++x) {
         for (int y = 0; y < numY-1; ++y) {
-
-            this->indices[(x*(numY-1) + y) * 6 + 0] = x*numY + y;
-            this->indices[(x*(numY-1) + y) * 6 + 1] = (x+1)*numY + y;
-            this->indices[(x*(numY-1) + y) * 6 + 2] = (x+1)*numY + y+1;
-
-            this->indices[(x*(numY-1) + y) * 6 + 3] = x*numY + y;
-            this->indices[(x*(numY-1) + y) * 6 + 4] = (x+1)*numY + y+1;
-            this->indices[(x*(numY-1) + y) * 6 + 5] = x*numY + y+1;
+            this->indices[i++] = x*numY + y;
+            this->indices[i++] = x*numY + y+1;
         }
     }
+
+    for (int y = 0; y < numY; ++y) {
+        for (int x = 0; x < numX-1; ++x) {
+            this->indices[i++] = x*numY + y;
+            this->indices[i++] = (x+1)*numY + y;
+        }
+    }
+
+    generateCube();
 }
 
-float SurfacePlotter::f(float x, float y) {
+float SurfacePlotter::f(float x, float y, float t) {
 
     // EQUATION
-    float z = 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
-    //float z = 2 * sin(pow(x/2.5, 2) + pow(y/2.5, 2));
-    //float z = pow(x/1.5,2) + pow(y/1.5,2); // parabaloid
+    float z = sin(2*t) * 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
+    //float z = sin(2*t) * 2 * sin(pow(x/2.5, 2) + pow(y/2.5, 2));
+    //float z = sin(2*t) * pow(x/1.5,2) + pow(y/1.5,2); // parabaloid
 
     // update z ranges
-    if (z < zMin)
-        zMin = z;
-    if (z > zMax)
-        zMax = z;
+    if (z < this->zMin)
+        this->zMin = z;
+    if (z > this->zMax)
+        this->zMax = z;
 
     return z;
+}
+
+void SurfacePlotter::generateCube(void) {
+
+    // empty grid
+    if (this->gridPoints.empty())
+        return;
+
+    // vertices:
+
+    // deallocate old data
+    if (this->cubeVertices)
+        delete[] this->cubeVertices;
+
+    this->cubeVertices = new float[24] {
+        this->xMax, this->yMin, this->zMin,
+        this->xMax, this->yMax, this->zMin,
+        this->xMin, this->yMax, this->zMin,
+        this->xMin, this->yMin, this->zMin,
+        this->xMax, this->yMin, this->zMax,
+        this->xMax, this->yMax, this->zMax,
+        this->xMin, this->yMax, this->zMax,
+        this->xMin, this->yMin, this->zMax
+    };
 }
 
 float SurfacePlotter::getZMin(void) {
@@ -130,4 +165,12 @@ uint* SurfacePlotter::getIndices(void) {
 
 uint SurfacePlotter::getNumIndices(void) {
     return this->numIndices;
+}
+
+float* SurfacePlotter::getCubeVertices(void) {
+    return this->cubeVertices;
+}
+
+uint* SurfacePlotter::getCubeIndices(void) {
+    return this->cubeIndices;
 }

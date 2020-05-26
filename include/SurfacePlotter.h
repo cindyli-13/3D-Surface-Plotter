@@ -31,12 +31,18 @@ class SurfacePlotter {
         uint* indices;
         uint numIndices;
 
+        // cube data
+        float* cubeVertices;
+        uint* cubeIndices;
+
     public:
         SurfacePlotter();
 
         void setGrid(float xMin, float xMax, float yMin, float yMax, float interval);
         void generateSurfacePlot(float time);
-        float f(float x, float y); // mathematical multi-variable function, returns z value
+        float f(float x, float y, float t); // mathematical multi-variable function, returns z value
+
+        void generateCube(void);
 
         float getZMin(void);
         float getZMax(void);
@@ -46,6 +52,9 @@ class SurfacePlotter {
         uint getNumElements(void);
         uint* getIndices(void);
         uint getNumIndices(void);
+
+        float* getCubeVertices(void);
+        uint* getCubeIndices(void);
 };
 
 #endif //SURFACEPLOTTER_H

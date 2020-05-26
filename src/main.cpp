@@ -6,6 +6,7 @@
 // shader source code paths
 const char* vertexShaderPath = "shaders/vertexShader.vs";
 const char* fragmentShaderPath = "shaders/fragmentShader.fs";
+const char* whiteFragmentShaderPath = "shaders/whiteFragmentShader.fs";
 
 // declare static members for use in callback functions
 int GLProgram::windowWidth = WINDOW_WIDTH;
@@ -17,7 +18,7 @@ glm::mat4 GLProgram::modelMatrix = glm::mat4(1.0f);
 
 int main() {
     GLProgram program;
-    program.init(vertexShaderPath, fragmentShaderPath);
+    program.init(vertexShaderPath, fragmentShaderPath, whiteFragmentShaderPath);
     program.setClearColor(0.05f, 0.18f, 0.25f, 1.0f);
     program.run();
     program.cleanup();

@@ -4,7 +4,7 @@
 GLProgram::GLProgram() :
     deltaTime(0.0f), prevTime(0.0f) {}
 
-void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
+void GLProgram::init(const char* vertexPath, const char* fragmentPath, const char* whiteFragmentPath) {
 
     // initialize window system
     glfwInit();
@@ -38,8 +38,9 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
     glEnable(GL_DEPTH_TEST);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // wireframe
 
-    // init shader
+    // init shaders
     this->shader = Shader(vertexPath, fragmentPath);
+    this->whiteShader = Shader(vertexPath, whiteFragmentPath);
 
     // generate default surface plot
     this->surfacePlotter.generateSurfacePlot(1.0f);
@@ -48,7 +49,6 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath) {
     initDrawingData();
 }
 
-// TODO
 void GLProgram::run(void) {
 
     // main loop
@@ -69,15 +69,20 @@ void GLProgram::run(void) {
         surfacePlotter.generateSurfacePlot(1.0f);
 
         // set up shader and transformation matrices
-        this->shader.use();
+        // TODO: condense this part
         glm::mat4 viewMatrix = getViewMatrix();
         glm::mat4 projectionMatrix = getProjectionMatrix();
         int zRange = this->surfacePlotter.getZRange();
+        this->shader.use();
         this->shader.setFloatUniform("zRange", (zRange == 0) ? 1.0f : zRange);
         this->shader.setFloatUniform("zMin", this->surfacePlotter.getZMin());
         this->shader.setMat4Uniform("view", viewMatrix);
         this->shader.setMat4Uniform("projection", projectionMatrix);
         this->shader.setMat4Uniform("model", getDefaultModelMatrix() * modelMatrix);
+        this->whiteShader.use();
+        this->whiteShader.setMat4Uniform("view", viewMatrix);
+        this->whiteShader.setMat4Uniform("projection", projectionMatrix);
+        this->whiteShader.setMat4Uniform("model", getDefaultModelMatrix() * modelMatrix);
 
         // render
         this->surfacePlotter.generateSurfacePlot((float)glfwGetTime());
@@ -90,6 +95,8 @@ void GLProgram::run(void) {
 }
 
 void GLProgram::initDrawingData(void) {
+
+    // SURFACE PLOT
 
     // generate surface plot VAO and VBO and EBO
     this->surfacePlotVAO = generateVAO();
@@ -110,14 +117,47 @@ void GLProgram::initDrawingData(void) {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
     glEnableVertexAttribArray(0);
 
+
+    // CUBE
+
+    // generate cube VAO and VBO and EBO
+    this->cubeVAO = generateVAO();
+    this->cubeVBO = generateBuffer();
+    this->cubeEBO = generateBuffer();
+
+    glBindVertexArray(this->cubeVAO);
+
+    // set VBO data
+    glBindBuffer(GL_ARRAY_BUFFER, this->cubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, 24*sizeof(float), this->surfacePlotter.getCubeVertices(), GL_STATIC_DRAW);
+
+    // set EBO data
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->cubeEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 24*sizeof(uint), this->surfacePlotter.getCubeIndices(), GL_STATIC_DRAW);
+
+    // vertices attributes
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+    glEnableVertexAttribArray(0);
+
     glBindVertexArray(0);
 }
 
 void GLProgram::drawSurfacePlot(void) {
+
+    // surface plot
+    this->shader.use();
     glBindVertexArray(this->surfacePlotVAO);
     glBindBuffer(GL_ARRAY_BUFFER, this->surfacePlotVBO);
     glBufferData(GL_ARRAY_BUFFER, this->surfacePlotter.getNumElements()*sizeof(float), this->surfacePlotter.getVertices(), GL_DYNAMIC_DRAW);
-    glDrawElements(GL_TRIANGLES, this->surfacePlotter.getNumIndices(),GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_LINES, this->surfacePlotter.getNumIndices(),GL_UNSIGNED_INT, 0);
+
+    // cube
+    this->whiteShader.use();
+    glBindVertexArray(this->cubeVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, this->cubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, 24*sizeof(float), this->surfacePlotter.getCubeVertices(), GL_STATIC_DRAW);
+    glDrawElements(GL_LINES, 24, GL_UNSIGNED_INT, 0);
+
     glBindVertexArray(0);
 }
 
@@ -127,6 +167,10 @@ void GLProgram::cleanup(void) {
     glDeleteVertexArrays(1, &(this->surfacePlotVAO));
     glDeleteBuffers(1, &(this->surfacePlotVBO));
     glDeleteBuffers(1, &this->surfacePlotEBO);
+
+    glDeleteVertexArrays(1, &(this->cubeVAO));
+    glDeleteBuffers(1, &(this->cubeVBO));
+    glDeleteBuffers(1, &this->cubeEBO);
 
     // clean up glfw
     glfwTerminate();
@@ -153,7 +197,7 @@ glm::mat4 GLProgram::getViewMatrix(void) {
 }
 
 glm::mat4 GLProgram::getProjectionMatrix(void) {
-    return glm::perspective(glm::radians(camera.zoom), (float) this->windowWidth / (float) this->windowHeight, 0.1f, 100.0f);
+    return glm::perspective(glm::radians(camera.zoom), (float) this->windowWidth / (float) this->windowHeight, 0.1f, 99999.0f);
 }
 
 glm::mat4 GLProgram::getDefaultModelMatrix(void) {

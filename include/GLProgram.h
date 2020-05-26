@@ -27,9 +27,10 @@ class GLProgram {
             float alpha = 1.0f;
         } clearColor;
 
-        Shader shader;
+        Shader shader, whiteShader;
         SurfacePlotter surfacePlotter;
         uint surfacePlotVAO, surfacePlotVBO, surfacePlotEBO;
+        uint cubeVAO, cubeVBO, cubeEBO;
 
         void initDrawingData(void);
         static glm::vec3 getArcballVector(float x, float y); // helper to cursor callback, (x,y) are raw mouse coordinates
@@ -43,7 +44,7 @@ class GLProgram {
 
         GLProgram();
 
-        void init(const char* vertexPath, const char* fragmentPath);
+        void init(const char* vertexPath, const char* fragmentPath, const char* whiteFragmentPath);
         void run(void);
         void cleanup(void);
 
