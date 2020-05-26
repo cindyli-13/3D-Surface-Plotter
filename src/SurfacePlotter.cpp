@@ -102,9 +102,9 @@ void SurfacePlotter::generateSurfacePlot(float time) {
 float SurfacePlotter::f(float x, float y, float t) {
 
     // EQUATION
-    //float z = 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
+    float z = sin(t) * 8*sin(sqrt(pow(x, 2) + pow(y, 2))) / sqrt(pow(x, 2) + pow(y, 2)); // sombrero equation
     //float z = sin(pow(x/2.5, 2) + pow(y/2.5, 2));
-    float z = (pow(x/1.5,2) + pow(y/1.5,2)) * 0.3; // parabaloid
+    //float z = (pow(x/1.5,2) + pow(y/1.5,2)) * 0.3; // parabaloid
 
     // update z ranges
     if (z < this->zMin)

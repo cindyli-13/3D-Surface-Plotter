@@ -36,7 +36,6 @@ void GLProgram::init(const char* vertexPath, const char* fragmentPath, const cha
     // GL calls
     glViewport(0, 0, this->windowWidth, this->windowHeight);
     glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // wireframe
 
     // init shaders
     this->shader = Shader(vertexPath, fragmentPath);
@@ -87,7 +86,7 @@ void GLProgram::run(void) {
         // render
         this->surfacePlotter.generateSurfacePlot((float)glfwGetTime());
         drawSurfacePlot();
-        //drawCube();
+        drawCube();
 
         // check and call events and swap buffers
         glfwSwapBuffers((this->window));

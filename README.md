@@ -1,6 +1,6 @@
 # 3D Surface Plotter
 
-A 3D surface plotting program built with OpenGL for visualizing two-variable mathematical functions. 
+A 3D surface plotting program built with OpenGL for visualizing multivariable mathematical functions. 
 
 Currently a work in progress.
 
